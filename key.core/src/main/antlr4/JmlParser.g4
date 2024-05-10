@@ -220,8 +220,9 @@ storeref: (NOTHING | EVERYTHING | NOT_SPECIFIED |  STRICTLY_NOTHING | storeRefEx
 createLocset: (LOCSET | SINGLETON) LPAREN exprList RPAREN;
 exprList: expression (COMMA expression)*;
 storeRefExpr: expression;
-predornot: (predicate |NOT_SPECIFIED | SAME);
+predornot: (predicate |NOT_SPECIFIED | SAME | backtickMethod);
 predicate: expression;
+backtickMethod: BACKTICK expression BACKTICK;
 
 expressionEOF: (expression|storeref)  EOF;
 expression: conditionalexpr;

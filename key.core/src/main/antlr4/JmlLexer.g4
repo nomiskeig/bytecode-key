@@ -348,6 +348,7 @@ UNSIGNEDSHIFTRIGHT: '>>>';
 XOR: '^';
 GT: '>';
 LT: '<';
+BACKTICK: '`';
 
 
 LPAREN:               '(' {incrParen();};

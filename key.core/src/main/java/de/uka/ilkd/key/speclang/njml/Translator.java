@@ -376,6 +376,11 @@ class Translator extends JmlParserBaseVisitor<Object> {
         if (ctx.predicate() != null) {
             return accept(ctx.predicate());
         }
+        if (ctx.backtickMethod() != null)  {
+            return accept(ctx.backtickMethod());
+        }
+
+
         if (ctx.NOT_SPECIFIED() != null) {
             return new SLExpression(
                 termFactory.createSkolemExprBool(ctx.NOT_SPECIFIED().getText()).getTerm());
@@ -386,6 +391,12 @@ class Translator extends JmlParserBaseVisitor<Object> {
         }
         raiseError(ctx, "Unknown syntax case.");
         return null;
+    }
+
+    @Override
+    public SLExpression visitBacktickMethod(JmlParser.BacktickMethodContext ctx)  {
+        return accept(ctx.expression());
+
     }
 
     @Override

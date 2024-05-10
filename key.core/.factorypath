@@ -1,0 +1,8 @@
+<factorypath>
+    <factorypathentry kind="EXTJAR" id="/home/simon/.gradle/caches/modules-2/files-2.1/io.github.eisop/checker-util/3.42.0-eisop2/505a9e79a148ef1f5ede86ba53f6b183de91976b/checker-util-3.42.0-eisop2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/simon/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-util/3.35.0/b51cfe6367671884cb5e5f55d5ae1557cf1eedeb/checker-util-3.35.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/simon/.gradle/caches/modules-2/files-2.1/io.github.eisop/checker/3.42.0-eisop2/1bb354ddcf92bd0272c82e3f7386ffe79fed53d4/checker-3.42.0-eisop2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/simon/.gradle/caches/modules-2/files-2.1/io.github.eisop/checker-qual/3.42.0-eisop2/c536d4af0f7daff936153f09a195b58b77a32f4b/checker-qual-3.42.0-eisop2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/simon/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker/3.35.0/dc3fbdc26a417123db18940bb62358b423d5ae1d/checker-3.35.0.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="EXTJAR" id="/home/simon/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.35.0/3baabaf8eecea6e9e22b8e39cd25953ff4813e0e/checker-qual-3.35.0.jar" enabled="true" runInBatchMode="false"/>
+</factorypath>
