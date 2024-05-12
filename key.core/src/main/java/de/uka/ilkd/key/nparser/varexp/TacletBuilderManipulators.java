@@ -319,6 +319,24 @@ public class TacletBuilderManipulators {
 
     public static final AbstractConditionBuilder HAS_SORT =
         new JavaTypeToSortConditionBuilder("hasSort", false);
+    public static final AbstractConditionBuilder IS_CONTENT = 
+        new AbstractConditionBuilder("isContent", SV, SV) {
+        @Override
+        public VariableCondition build(Object[] arguments, List<String> parameters, boolean negated) {
+            System.out.println("Building isContent");
+            System.out.println("Arguments:\n");
+            for (Object o : arguments) {
+                System.out.println(o + " class: " + o.getClass());
+            }
+            System.out.println("parameters:\n");
+            for (String s : parameters) {
+                System.out.println(s);
+            }
+            return new IsContentCondition((SchemaVariable) arguments[0], (SchemaVariable) arguments[1]);
+        };
+
+
+    };
     public static final AbstractConditionBuilder HAS_ELEM_SORT =
         new JavaTypeToSortConditionBuilder("hasElementarySort", true);
 
@@ -374,7 +392,7 @@ public class TacletBuilderManipulators {
             applyUpdateOnRigid, DROP_EFFECTLESS_ELEMENTARIES, SIMPLIFY_ITE_UPDATE, SUBFORMULAS,
             STATIC_FIELD, MODEL_FIELD, SUBFORMULA, DROP_EFFECTLESS_STORES, EQUAL_UNIQUE,
             META_DISJOINT,
-            IS_OBSERVER, CONSTANT, HAS_SORT, LABEL, NEW_LABEL, HAS_ELEM_SORT, IS_IN_STRICTFP);
+            IS_OBSERVER, CONSTANT, HAS_SORT, LABEL, NEW_LABEL, HAS_ELEM_SORT, IS_IN_STRICTFP, IS_CONTENT);
         register(STORE_TERM_IN, STORE_STMT_IN, HAS_INVARIANT, GET_INVARIANT, GET_FREE_INVARIANT,
             GET_VARIANT, IS_LABELED);
         loadWithServiceLoader();

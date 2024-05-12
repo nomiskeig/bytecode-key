@@ -695,6 +695,7 @@ varexpId: // weigl, 2021-03-12: This will be later just an arbitrary identifier.
   | DISJOINTMODULONULL
   | NOTFREEIN
   | HASSORT
+  | ISCONTENT
   | NEWLABEL
   | ISREFERENCE
   | MAXEXPANDMETHOD
