@@ -332,7 +332,7 @@ public class TacletBuilderManipulators {
             for (String s : parameters) {
                 System.out.println(s);
             }
-            return new IsContentCondition((SchemaVariable) arguments[0], (SchemaVariable) arguments[1]);
+            return new IsContentCondition((SchemaVariable) arguments[0], (SchemaVariable) arguments[1], parameters);
         };
 
 

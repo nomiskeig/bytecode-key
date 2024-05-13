@@ -1,0 +1,3 @@
+
+> Configure project :
+No android or java plugins found in the project my_key, checker compiler options will not be applied.

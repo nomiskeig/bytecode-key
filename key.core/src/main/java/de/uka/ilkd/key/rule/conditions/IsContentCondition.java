@@ -1,9 +1,12 @@
 package de.uka.ilkd.key.rule.conditions;
 
+import java.util.List;
+
 import org.key_project.logic.Name;
 import org.key_project.logic.sort.Sort;
 
 import de.uka.ilkd.key.java.Services;
+import de.uka.ilkd.key.java.expression.literal.StringLiteral;
 import de.uka.ilkd.key.java.visitor.Visitor;
 import de.uka.ilkd.key.logic.ProgramElementName;
 import de.uka.ilkd.key.logic.op.LocationVariable;
@@ -16,10 +19,12 @@ import de.uka.ilkd.key.rule.inst.SVInstantiations;
 public class IsContentCondition implements VariableCondition {
     private final SchemaVariable source;
     private final SchemaVariable target;
+    private final List<String> parameters;
 
-    public IsContentCondition(SchemaVariable source, SchemaVariable target) {
+    public IsContentCondition(SchemaVariable source, SchemaVariable target, List<String> parameters) {
         this.source = source;
         this.target = target;
+        this.parameters = parameters;
 
     }
 
@@ -41,8 +46,27 @@ public class IsContentCondition implements VariableCondition {
         System.out.println("InstantiationClass: " + inst.getClass());
 
         // we get a location variable
+        String name = ((StringLiteral)inst).getValue();
+        // remove first and last char since the initializiation includes the " at front and end
+        name = name.substring(1, name.length()-1);
+        if (!this.parameters.contains("set_to_parameter")) {
+            name = this.parameters.get(1);
+            System.out.println("initial string: " + name);
+            name = name.replaceAll("_", ".");
+            int lastIndex = name.lastIndexOf('.');
+            System.out.println("name and index of .: " + name + " "+ lastIndex);
+            if (this.parameters.contains("full")) {
+            name = name.substring(0, lastIndex) + "::" + name.substring(lastIndex + 1);
+            } else {
+            name = name.substring(0, lastIndex);
 
-        ProgramElementName newName = new ProgramElementName("de.aload.JVM::op_stack");
+            }
+
+
+        }
+        System.out.println("final name : " + name);
+
+        ProgramElementName newName = new ProgramElementName(name);
         Sort newSort = services.getNamespaces().sorts().lookup("Seq");
         LocationVariable lv = new LocationVariable(newName, newSort);
         // return matchCond;
