@@ -49,8 +49,12 @@ public class IsContentCondition implements VariableCondition {
         String name = ((StringLiteral)inst).getValue();
         // remove first and last char since the initializiation includes the " at front and end
         name = name.substring(1, name.length()-1);
-        if (!this.parameters.contains("set_to_parameter")) {
-            name = this.parameters.get(1);
+        if (this.parameters.contains("set_to_parameter")) {
+            for (String s : this.parameters) {
+                if (!s.equals("full") && !s.equals("set_to_parameter")) {
+                    name = s;
+                }
+            }
             System.out.println("initial string: " + name);
             name = name.replaceAll("_", ".");
             int lastIndex = name.lastIndexOf('.');
