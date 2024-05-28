@@ -134,7 +134,10 @@ public class SchemaRecoder2KeYConverter extends Recoder2KeYConverter {
             return new InitArrayCreation(mc.getFirstSV().getSV(), list.get(Expression.class));
         } else if ("#reattachLoopInvariant".equals(mcName)) {
             return new ReattachLoopInvariant(list.get(LoopStatement.class));
-        } else {
+        } else if ("#bytecode-new".equals(mcName)) {
+            return new BytecodeNew(list.get(SchemaVariable.class));
+        }
+        else {
             throw new ConvertException("Program meta construct " + mc + " unknown.");
         }
     }

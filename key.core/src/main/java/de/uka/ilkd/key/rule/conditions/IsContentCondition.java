@@ -43,12 +43,17 @@ public class IsContentCondition implements VariableCondition {
         System.out.println("instantiation of source:\n");
         System.out.println("Source: " + source);
         System.out.println("Instantiation: " + inst);
-        System.out.println("InstantiationClass: " + inst.getClass());
+        //System.out.println("InstantiationClass: " + inst.getClass());
 
         // we get a location variable
-        String name = ((StringLiteral)inst).getValue();
+
+        String name = "";
+        if (inst != null) {
+
+            name = ((StringLiteral)inst).getValue();
+            name = name.substring(1, name.length()-1);
+        }
         // remove first and last char since the initializiation includes the " at front and end
-        name = name.substring(1, name.length()-1);
         if (this.parameters.contains("set_to_parameter")) {
             for (String s : this.parameters) {
                 if (!s.equals("full") && !s.equals("set_to_parameter")) {

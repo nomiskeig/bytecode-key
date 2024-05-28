@@ -4141,7 +4141,7 @@ RKeYMetaConstruct KeYMetaConstructStatement() :
     TypeCast typeCast;
     LabeledStatement labStat;
     Statement stat;
-    Expression methRef, consRef, activeAccess;
+    Expression methRef, consRef, activeAccess, classRef;
     ProgramVariableSVWrapper sv = null;
     ExecCtxtSVWrapper execsv = null;
     JumpLabelSVWrapper innerLabel, outerLabel;
@@ -4186,6 +4186,17 @@ RKeYMetaConstruct KeYMetaConstructStatement() :
     return result;
 }
    )
+     |
+     (
+        "#bytecode-new" "(" (classRef = ExpressionSV()) ")" ";"
+        {
+            result = factory.createRKeYMetaConstruct();
+            setPrefixInfo(result);
+            result.setChild((Statement)classRef);
+            result.setName("#bytecode-new");
+            return result;
+        }
+     )
    |
    (
     <FORINITUNFOLDTRANSFORMER> "(" ( loopInit=ForInit() ) ")" ";" 
